@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyExpenseManager.Views.MainExpense"
+             BackgroundColor="#FFFFFF"
+             
+             >
+    <ContentPage.Content >
+
+       
+        <StackLayout>
+
+            <StackLayout> 
+                <Frame BackgroundColor="#1492E6" CornerRadius="32" Margin="10,20,10,0" BorderColor="#1492E6" Padding="0,0,0,0">
+                    <StackLayout  HeightRequest="150" Padding="0,0,0,0">
+                        <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="45" TextColor="#FFFFFF" FontFamily="">
+                            Today
+                        </Label>
+                        <Label>01/01/2022</Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
