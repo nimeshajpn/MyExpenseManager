@@ -5,21 +5,204 @@
              BackgroundColor="#FFFFFF"
              
              >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"></ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
+    
+    
+    
     <ContentPage.Content >
 
        
         <StackLayout>
 
-            <StackLayout> 
-                <Frame BackgroundColor="#1492E6" CornerRadius="32" Margin="10,20,10,0" BorderColor="#1492E6" Padding="0,0,0,0">
-                    <StackLayout  HeightRequest="150" Padding="0,0,0,0">
-                        <Label HorizontalOptions="Center" VerticalOptions="Center" FontSize="45" TextColor="#FFFFFF" FontFamily="">
-                            Today
+            <StackLayout>
+
+                <Frame CornerRadius="32" Background="#1492E6" HeightRequest="150" Margin="10,20,10,0">
+                    <StackLayout Orientation="Vertical">
+                        <Label 
+                            
+                            HorizontalOptions="CenterAndExpand"
+                            FontSize="40" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-Bold"
+                            Padding="0,0,0,0"
+                            Margin="0,-20,0,0"
+                            >Today
                         </Label>
-                        <Label>01/01/2022</Label>
+                        <Label  
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            FontSize="20" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-Light" 
+                            Margin="0,-20,0,0"
+                            Padding="0,0,0,0"
+                            >01/01/2022
+                        </Label>
+                        
+
+                            <Label  
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            FontSize="40" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-ExtraLight" 
+                            Margin="0,-20,0,0"
+                            Padding="0,0,0,0"
+                            >10000000
+                            </Label>
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label  
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            FontSize="20" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-Bold" 
+                            Margin="0,-15,0,0"
+                            Padding="0,0,0,0"
+                            >Income
+                            </Label>
+                            <Label  
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            FontSize="20" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-Bold" 
+                            Margin="0,-15,0,0"
+                            Padding="0,0,0,0"
+                            >10
+                            </Label>
+
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label  
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            FontSize="20" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-Bold" 
+                            Margin="0,-15,0,0"
+                            Padding="0,0,0,0"
+                            >Expense
+                            </Label>
+                            <Label  
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            FontSize="20" 
+                            TextColor="#FFFFFF" 
+                            FontFamily="Poppins-Bold" 
+                            Margin="0,-15,0,0"
+                            Padding="0,0,0,0"
+                            >10
+                            </Label>
+
+                        </StackLayout>
                     </StackLayout>
+                    
+                </Frame>
+                
+            </StackLayout>
+
+
+            <StackLayout>
+                <Frame  CornerRadius="30" Margin="10,10,10,20" BorderColor="#1492E6" >
+                    <ScrollView Orientation="Vertical">
+                        <StackLayout  Orientation="Vertical">
+
+                            <CollectionView x:Name="MyCollection"  >
+
+
+
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Span="1" Orientation="Vertical" />
+                                </CollectionView.ItemsLayout>
+
+
+                                <CollectionView.ItemTemplate  Orientation="Vertical">
+
+                                    <DataTemplate >
+
+
+                                        <SwipeView>
+                                            <SwipeView.RightItems>
+                                                <SwipeItem
+                                                    Text="Edite"
+                                                    BackgroundColor="Red"
+                                                    CommandParameter="{Binding .}"
+                                                    Invoked="Swipe"
+                                                    ></SwipeItem>
+                                                <SwipeItem
+                                                    Text="Delete"
+                                                    BackgroundColor="Red"
+                                                    CommandParameter="{Binding .}"
+                                                    Invoked="SwipeDelete"
+                                                    ></SwipeItem>
+                                            </SwipeView.RightItems>
+
+
+                                            <StackLayout  Orientation="Vertical">
+                                                <Grid Padding="10"  RowSpacing="0" >
+                                                    <Grid.RowDefinitions  Orientation="Vertical" >
+                                                        <RowDefinition Height="*"/>
+
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions  Orientation="Vertical">
+                                                        <ColumnDefinition />
+
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding ID}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+                                                    <Label Text="{Binding Category}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" FontSize="30"  FontFamily="Poppins-Light"></Label>
+                                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" HorizontalOptions="End" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+                                                    <Label Text="{Binding Date}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+
+
+
+
+
+
+                                                </Grid>
+
+                                            </StackLayout>
+                                        </SwipeView>
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+                    </ScrollView>
+
                 </Frame>
             </StackLayout>
+
+
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="End" HeightRequest="70"  >
+
+
+
+
+                <Button  Clicked="btn1Main" HorizontalOptions="EndAndExpand"  Text="Add" TextColor="#FFF" BackgroundColor="#1492E6" WidthRequest="100" HeightRequest="30"  Margin="10,0,10,30" CornerRadius="20">
+
+                    </Button>
+
+
+
+                
+              
+                
+            </StackLayout>
+
+
+ 
+            
+            
+            
             
            
         </StackLayout>

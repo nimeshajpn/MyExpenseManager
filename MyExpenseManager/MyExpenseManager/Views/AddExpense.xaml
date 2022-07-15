@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyExpenseManager.Views.AddExpense">
+    <ContentPage.Content>
+        <StackLayout>
+         
+                <Frame CornerRadius="30" BorderColor="SkyBlue" Margin="10,10" VerticalOptions="CenterAndExpand" >
+
+                <StackLayout>
+                    <Picker Title="Categoriesss"
+                    x:Name="pp" 
+                    
+                    >
+                        <Picker.Items >
+                            <x:String>Food</x:String>
+                            <x:String>Clothing</x:String>
+                            <x:String>Fruits</x:String>
+                            <x:String>Shopping</x:String>
+                            <x:String>Tranport</x:String>
+                            <x:String>Travel</x:String>
+                            <x:String>Other</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry
+                Placeholder="Amount"
+                x:Name="tb"
+                
+                ></Entry>
+                    <DatePicker 
+                      Format="d" 
+                        x:Name="Datep"
+                        >
+                        
+                    </DatePicker>
+                    <TimePicker  
+                      Format="t" 
+                       x:Name="Timep" 
+                        >
+                        
+                    </TimePicker>
+
+                    <Switch 
+                     x:Name="switch"
+                        IsToggled="false" />
+
+                    <Button
+                Text="save"
+                Clicked="btn2_Click"
+                        TextColor="Black"
+                        BackgroundColor="SkyBlue"
+                ></Button>
+
+                </StackLayout>
+                    
+                </Frame>
+               
+
+           
+
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
