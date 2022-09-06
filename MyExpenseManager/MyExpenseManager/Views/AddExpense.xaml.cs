@@ -63,9 +63,9 @@ namespace MyExpenseManager.Views
                
                 await App.sql.CreateE(new Models.Emodel
                 {
-                    Name = tb.Text.ToString(),
+                    Amount = double.Parse(tb.Text),
                     Category = pp.SelectedItem.ToString(),
-                    
+                    Type = TypePicker.SelectedItem.ToString(),
                     Date = Datep.Date+ Timep.Time,
                 }
 

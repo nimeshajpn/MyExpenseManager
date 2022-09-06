@@ -81,6 +81,9 @@
     <FlyoutItem Title="About" Icon="icon_about.png">
         <ShellContent Route="AddExpense" ContentTemplate="{DataTemplate local:AddExpense}" />
     </FlyoutItem>
+    <FlyoutItem Title="About" Icon="icon_about.png">
+        <ShellContent Route="Main" ContentTemplate="{DataTemplate local:MainExpense}" />
+    </FlyoutItem>
    
 
 </Shell>

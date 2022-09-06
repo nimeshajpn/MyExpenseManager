@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:myexpensemanager="clr-namespace:MyExpenseManager"
+          
              x:Class="MyExpenseManager.Views.MainExpense"
              BackgroundColor="#FFFFFF"
+             Shell.NavBarIsVisible="False"
+               Shell.FlyoutItemIsVisible="False"
              
              >
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"></ToolbarItem>
-        
-    </ContentPage.ToolbarItems>
+   
+
     
     
     
@@ -32,6 +34,7 @@
                             >Today
                         </Label>
                         <Label  
+                            x:Name="lbDate"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="Center"
                             FontSize="20" 
@@ -39,11 +42,12 @@
                             FontFamily="Poppins-Light" 
                             Margin="0,-20,0,0"
                             Padding="0,0,0,0"
-                            >01/01/2022
-                        </Label>
-                        
+                            Text="{Binding Income }"/>
 
-                            <Label  
+
+
+                        <Label  
+                             x:Name="lbTotal"
                             HorizontalOptions="CenterAndExpand"
                             VerticalOptions="Center"
                             FontSize="40" 
@@ -51,8 +55,8 @@
                             FontFamily="Poppins-ExtraLight" 
                             Margin="0,-20,0,0"
                             Padding="0,0,0,0"
-                            >10000000
-                            </Label>
+                            
+                            />
 
                         <StackLayout Orientation="Horizontal">
 
@@ -74,8 +78,8 @@
                             FontFamily="Poppins-Bold" 
                             Margin="0,-15,0,0"
                             Padding="0,0,0,0"
-                            >10
-                            </Label>
+                             x:Name="lbIncome"
+                                />
 
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
@@ -98,8 +102,8 @@
                             FontFamily="Poppins-Bold" 
                             Margin="0,-15,0,0"
                             Padding="0,0,0,0"
-                            >10
-                            </Label>
+                            x:Name="lbExpense"
+                                />
 
                         </StackLayout>
                     </StackLayout>
@@ -110,8 +114,10 @@
 
 
             <StackLayout>
-                <Frame  CornerRadius="30" Margin="10,10,10,20" BorderColor="#1492E6" >
-                    <ScrollView Orientation="Vertical">
+                <Frame  CornerRadius="10" Margin="10,10,10,10" BorderColor="#1492E6" Padding="20">
+                    <ScrollView Orientation="Vertical" Margin="0,0,0,0"
+                                
+                                >
                         <StackLayout  Orientation="Vertical">
 
                             <CollectionView x:Name="MyCollection"  >
@@ -145,27 +151,32 @@
                                             </SwipeView.RightItems>
 
 
-                                            <StackLayout  Orientation="Vertical">
-                                                <Grid Padding="10"  RowSpacing="0" >
-                                                    <Grid.RowDefinitions  Orientation="Vertical" >
-                                                        <RowDefinition Height="*"/>
-
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions  Orientation="Vertical">
-                                                        <ColumnDefinition />
-
-                                                    </Grid.ColumnDefinitions>
-                                                    <Label Text="{Binding ID}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" FontSize="30"  FontFamily="Poppins-Light" ></Label>
-                                                    <Label Text="{Binding Category}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" FontSize="30"  FontFamily="Poppins-Light"></Label>
-                                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" HorizontalOptions="End" FontSize="30"  FontFamily="Poppins-Light" ></Label>
-                                                    <Label Text="{Binding Date}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+                                            <StackLayout  Orientation="Vertical" Margin="0,0,0,20">
+                                                <Frame BorderColor="Blue" CornerRadius="10">
 
 
 
+                                                    <Grid Padding="0"  Margin="0,0,0,0"  >
+
+                                                        <StackLayout >
+                                                            <Label Text="{Binding Category}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+                                                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0">
+                                                                <Label Text="{Binding Type}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" FontSize="30"  FontFamily="Poppins-Light"></Label>
+                                                                <Label Text="{Binding Amount}" Grid.Row="0" Grid.Column="0" HorizontalOptions="EndAndExpand" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+
+                                                            </StackLayout>
+                                                            <Label Text="{Binding Date}" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand" FontSize="30"  FontFamily="Poppins-Light" ></Label>
+
+
+                                                        </StackLayout>
 
 
 
-                                                </Grid>
+
+
+                                                    </Grid>
+
+                                                </Frame>
 
                                             </StackLayout>
                                         </SwipeView>

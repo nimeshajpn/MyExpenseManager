@@ -40,9 +40,16 @@
                         
                     </TimePicker>
 
-                    <Switch 
-                     x:Name="switch"
-                        IsToggled="false" />
+                    <Picker Title="Type"
+                    x:Name="TypePicker" 
+                    
+                    >
+                        <Picker.Items >
+                            <x:String>InCome</x:String>
+                            <x:String>Expense</x:String>
+                           
+                        </Picker.Items>
+                    </Picker>
 
                     <Button
                 Text="save"

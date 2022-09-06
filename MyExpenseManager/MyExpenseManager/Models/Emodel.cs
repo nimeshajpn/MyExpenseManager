@@ -12,7 +12,9 @@ namespace MyExpenseManager.Models
 
         public DateTime Date { get; set; }
 
+        public double Amount { get; set; }
         public string Category { get; set; }    
+        public string Type { get; set; }    
 
         public TimeSpan Time { get; set; }
     }

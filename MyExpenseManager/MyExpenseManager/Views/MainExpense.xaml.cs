@@ -17,30 +17,127 @@ namespace MyExpenseManager.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainExpense : ContentPage
     {
+        private double _Total;
+        private double _Income;
+        private double _Expense;
+        private string _Date;
 
-        ObservableCollection<Emodel> e;
+
+        public double Total
+        {
+
+            get => _Total;
+            set
+            {
+
+                _Total = value;
+                OnPropertyChanged();
+
+            }
+
+
+        }
+        public double Income
+        {
+
+            get => _Income;
+            set
+            {
+
+                _Income = value;
+                OnPropertyChanged(nameof(Income));
+
+            }
+
+
+        }
+        public double Expense
+        {
+
+            get => _Expense;
+            set
+            {
+
+                _Expense = value;
+                OnPropertyChanged();
+
+            }
+
+
+        }
+        public string Date
+        {
+
+            get => _Date;
+            set
+            {
+
+                _Date = value;
+                OnPropertyChanged();
+
+            }
+
+
+        }
+
+
+
         public MainExpense()
         {
             InitializeComponent();
+            BindingContext= this;
 
-
-
+            Lord();
         }
 
-        protected override async void OnAppearing()
-        {
-            try
+        public async void Lord() {
+
+            var item = new List<Emodel>();
+              item   = await App.sql.ReadE();
+
+            MyCollection.ItemsSource=  item;
+
+            foreach (Emodel eitem in item)
             {
-                base.OnAppearing();
-                MyCollection.ItemsSource = await App.sql.ReadE();
+              
+                    
+                        if (eitem.Type == "InCome")
+                        {
+
+                            Income = Income + eitem.Amount;
+
+
+                        }
+                        else { 
+                        
+                            Expense= Expense+ eitem.Amount;
+                        
+                        }
+                    
+                    
+                    
+                
+                
+                
+                
+
+
             }
-
-            catch (Exception)
-            {
-
-
-            }
+            Total = Income - Expense;
+            lbDate.Text = DateTime.Now.ToString();
+            lbExpense.Text = Expense.ToString();
+            lbIncome.Text = Income.ToString();
+            lbTotal.Text = Total.ToString();
         }
+
+
+
+       
+
+
+
+
+
            
         private void btn1Main(object sender, EventArgs e)
         {
