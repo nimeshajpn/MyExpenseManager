@@ -21,7 +21,7 @@
 
             <StackLayout>
 
-                <Frame CornerRadius="32" Background="#1492E6" HeightRequest="150" Margin="10,20,10,0">
+                <Frame CornerRadius="10" Background="#1492E6" HeightRequest="150" Margin="10,20,10,0">
                     <StackLayout Orientation="Vertical">
                         <Label 
                             
